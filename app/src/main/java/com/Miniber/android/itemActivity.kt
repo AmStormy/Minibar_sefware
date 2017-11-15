@@ -1,0 +1,49 @@
+package com.Miniber.android
+
+import android.content.Intent
+import android.support.v7.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.EditText
+import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_item.*
+import kotlinx.android.synthetic.main.activity_report.*
+
+class itemActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_item)
+        val item = getIntent().getExtras().getString("id")
+        var I = item
+        val OStr = getIntent().getExtras().getString("OldString")
+        var am = OStr
+        val textView: TextView = findViewById(R.id.textView6)
+        textView.setText(I)
+
+        val room = getIntent().getExtras().getString("room")
+        var gg = room
+
+        println("Room - "+gg)
+        println("Cerrent String - "+item)
+        println("Old String - "+am)
+
+        button20.setOnClickListener {
+            val intent = Intent(this@itemActivity,MainActivity::class.java)
+            intent.putExtra("room", gg)
+            intent.putExtra("OldString", am)
+            startActivity(intent)
+         }
+        button21.setOnClickListener {
+            var num = findViewById<EditText>(R.id.editText2)
+            var amount =  num.getText().toString()
+            //Toast.makeText(this, room.text, Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this@itemActivity,reportActivity::class.java)
+            intent.putExtra("name", I)
+            intent.putExtra("amount", amount)
+            intent.putExtra("room", gg)
+            intent.putExtra("OldString", am)
+            startActivity(intent)
+        }
+    }
+}

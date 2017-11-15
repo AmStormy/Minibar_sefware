@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Minibar_sefware</string>
+    <string name="logo">Logo</string>
+    <string name="pin">PIN</string>
+    <string name="login">login</string>
+    <string name="room_number">Room Number</string>
+    <string name="ok">OK</string>
+    <string name="textview">textview</string>
+    <string name="empty">empty</string>
+    <string name="input_amount">Input amount</string>
+    <string name="Cancle">Cancle</string>
+    <string name="minibar_item_sold">Minibar item Sold</string>
+    <string name="clear">clear</string>
+    <string name="send">send</string>
+    <string name="ADD">ADD</string>
+</resources>
