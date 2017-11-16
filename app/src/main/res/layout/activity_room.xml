@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.Miniber.android.RoomActivity"
-    android:background="@color/background">
+    android:background="@drawable/background">
 
     <EditText
         android:id="@+id/room_number"
@@ -18,9 +18,6 @@
         android:ems="10"
         android:hint="@string/room_number"
         android:inputType="number"
-        android:textColor="@color/colorText"
-        android:textColorHint="@color/colorTextHint"
-        android:backgroundTint="@color/colorTextHint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.484"

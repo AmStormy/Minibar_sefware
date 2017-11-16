@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.Miniber.android.itemActivity"
-    android:background="@color/background">
+    android:background="@drawable/background">
 
     <TextView
         android:id="@+id/textView6"
@@ -17,7 +17,6 @@
         android:layout_marginTop="8dp"
         android:text="@string/textview"
         android:textSize="30sp"
-        android:textColor="@color/colorText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.54"
@@ -35,10 +34,8 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/input_amount"
+        android:text=""
         android:inputType="number"
-        android:textColor="@color/colorText"
-        android:textColorHint="@color/colorTextHint"
-        android:backgroundTint="@color/colorTextHint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.623"

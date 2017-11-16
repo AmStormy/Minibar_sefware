@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     }
         //var List_Item = arrayOf("Cashew Nut","Coca Cola Zero","Coca Cola","Dried Jack Fruit","Heineken","Ichitan Lemon","Ichitan Original","M & M","Milk","Perrier","Potato Chips","Singha","Soda Schweooes","Sprite","Tong Garden","Tonic Schweppes","Water","Yen Yen")
         fun setText(){
-            var RT = List_Item.size - 1
+            var RT = List_Item.size
             //println("##########################"+List_Item)
             //println("##########################"+RT)
             val room = getIntent().getExtras().getString("room")

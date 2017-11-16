@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
             if(error == 1)startActivity(Intent(this@LoginActivity, RoomActivity::class.java))
-            else Toast.makeText(this, "PIN wrong", Toast.LENGTH_SHORT).show()
+            else Toast.makeText(this, "PIN is wrong", Toast.LENGTH_SHORT).show()
         }
 
     }

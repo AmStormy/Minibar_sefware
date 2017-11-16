@@ -52,6 +52,10 @@ class reportActivity : AppCompatActivity() {
             val editT: EditText = findViewById(R.id.editText)
             editT.setText(newStr)
         }
+        button23.setOnClickListener {
+            val intent = Intent(this@reportActivity, RoomActivity::class.java)
+            startActivity(intent)
+        }
         button19.setOnClickListener {
             val str = newStr
             val dataAry = str.split(" (", ")", "\n")
