@@ -24,12 +24,16 @@ class itemActivity : AppCompatActivity() {
         val room = getIntent().getExtras().getString("room")
         var gg = room
 
+        val us = getIntent().getExtras().getString("user")
+        var user = us
+
 
 
         button20.setOnClickListener {
             val intent = Intent(this@itemActivity,MainActivity::class.java)
             intent.putExtra("room", gg)
             intent.putExtra("OldString", am)
+            intent.putExtra("user", user)
             startActivity(intent)
          }
         button21.setOnClickListener {
@@ -39,6 +43,7 @@ class itemActivity : AppCompatActivity() {
             if(amount.length >= 1){
                 val intent = Intent(this@itemActivity,reportActivity::class.java)
                 intent.putExtra("name", I)
+                intent.putExtra("user", user)
                 intent.putExtra("amount", amount)
                 intent.putExtra("room", gg)
                 intent.putExtra("OldString", am)

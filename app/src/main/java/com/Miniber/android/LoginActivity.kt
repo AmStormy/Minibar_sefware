@@ -9,6 +9,7 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_login.*
 class LoginActivity : AppCompatActivity() {
     var pin_list: MutableList<String> = mutableListOf<String>()
+    var users_list: MutableList<String> = mutableListOf<String>()
     lateinit var databaseRef: DatabaseReference
     lateinit var pin: String
     var error:Int = 0
@@ -17,7 +18,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         pin = ""
-
         Make_pin_color()
         databaseRef = FirebaseDatabase.getInstance().getReference()
         databaseRef.child("users").addValueEventListener(object : ValueEventListener {
@@ -28,7 +28,16 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
             override fun onCancelled(p0: DatabaseError) {}
-        })
+        })//Get pin list
+        databaseRef.child("users").addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (postSnapshot in snapshot.getChildren()) {
+                    val user = postSnapshot.getValue(User::class.java)
+                    users_list.add(user!!.name)
+                }
+            }
+            override fun onCancelled(p0: DatabaseError) {}
+        })//Get users list
         button24.setOnClickListener{
             pin = pin+"1"
             Make_pin_color()
@@ -194,7 +203,10 @@ class LoginActivity : AppCompatActivity() {
         for(i in pin_list.indices){
             if (pin_list[i] == pin){
                 error = 1
-                startActivity(Intent(this@LoginActivity, RoomActivity::class.java))
+                val intent = Intent(this@LoginActivity,RoomActivity::class.java)
+                var user = users_list[i]
+                intent.putExtra("user", user)
+                startActivity(intent)
                 pin = ""
                 //Make_pin_color()
             }

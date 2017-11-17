@@ -1,5 +1,4 @@
 package com.Miniber.android
-
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -15,11 +14,7 @@ import org.jetbrains.anko.*
 
 import java.text.SimpleDateFormat
 import java.util.Calendar
-
 class reportActivity : AppCompatActivity() {
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report)
@@ -29,7 +24,8 @@ class reportActivity : AppCompatActivity() {
         var am = OStr
         val textView: TextView = findViewById(R.id.textView2)
         textView.setText(gg)
-
+        val us = getIntent().getExtras().getString("user")
+        var user = us
         val item = getIntent().getExtras().getString("name")
         var name = item
         val num = getIntent().getExtras().getString("amount")
@@ -37,14 +33,13 @@ class reportActivity : AppCompatActivity() {
         var newStr = name + " (" + amount + ")\n" + am
         val editT: EditText = findViewById(R.id.editText)
         editT.setText(newStr)
-
         var timE :String
         timE = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime())
-
         button.setOnClickListener {
             val intent = Intent(this@reportActivity, MainActivity::class.java)
             intent.putExtra("room", gg)
             intent.putExtra("OldString", newStr)
+            intent.putExtra("user", user)
             startActivity(intent)
         }
         button22.setOnClickListener {
@@ -90,7 +85,7 @@ class reportActivity : AppCompatActivity() {
                     for (count in ItemCode) {
 
                         val ItemID = ref.push().key
-                        val items = Item(ItemCode[i], NumberOfAmount[i],timE)
+                        val items = Item(ItemCode[i], NumberOfAmount[i],timE,user)
                         ref.child(ItemID).setValue(items).addOnCompleteListener {
                             // Toast .....
                         }

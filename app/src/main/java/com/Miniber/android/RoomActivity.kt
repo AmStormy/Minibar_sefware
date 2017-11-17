@@ -15,9 +15,12 @@ class RoomActivity : AppCompatActivity() {
         button_room.setOnClickListener {
             var room = findViewById<EditText>(R.id.room_number)
             var number =  room.getText().toString()
+            val us = getIntent().getExtras().getString("user")
+            var user = us
             if(number.length >= 3){
                 var OldString = ""
                 val intent = Intent(this@RoomActivity,MainActivity::class.java)
+                intent.putExtra("user", user)
                 intent.putExtra("room", number)
                 intent.putExtra("OldString", OldString)
                 startActivity(intent)

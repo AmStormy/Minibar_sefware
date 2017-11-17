@@ -11,15 +11,26 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     lateinit var databaseRef: DatabaseReference
     var List_Item: MutableList<String> = mutableListOf<String>()
+    lateinit var gg : String
+    lateinit var am : String
+    lateinit var user : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val room = getIntent().getExtras().getString("room")
+        gg = room
 
-        //val menu: MutableList<Item> = mutableListOf()
+        val OStr = getIntent().getExtras().getString("OldString")
+        am = OStr
+
+        val us = getIntent().getExtras().getString("user")
+        user = us
+
+        val textView: TextView = findViewById(R.id.textView4)
+        textView.setText(gg)
 
         databaseRef = FirebaseDatabase.getInstance().getReference()
-
         databaseRef.child("Product").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (postSnapshot in snapshot.getChildren()) {
@@ -37,18 +48,8 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-        //var List_Item = arrayOf("Cashew Nut","Coca Cola Zero","Coca Cola","Dried Jack Fruit","Heineken","Ichitan Lemon","Ichitan Original","M & M","Milk","Perrier","Potato Chips","Singha","Soda Schweooes","Sprite","Tong Garden","Tonic Schweppes","Water","Yen Yen")
         fun setText(){
             var RT = List_Item.size
-            //println("##########################"+List_Item)
-            //println("##########################"+RT)
-            val room = getIntent().getExtras().getString("room")
-            var gg = room
-            val OStr = getIntent().getExtras().getString("OldString")
-            var am = OStr
-            val textView: TextView = findViewById(R.id.textView4)
-            textView.setText(gg)
-
             val buttonText1: Button = findViewById(R.id.button1)
             val buttonText2: Button = findViewById(R.id.button2)
             val buttonText3: Button = findViewById(R.id.button3)
@@ -87,169 +88,87 @@ class MainActivity : AppCompatActivity() {
             if (RT>16)  buttonText17.setText(List_Item[16])
             if (RT>17)  buttonText18.setText(List_Item[17])
 
-            if (RT>0)
-                button1.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>0) button1.setOnClickListener {
                     var te = List_Item[0]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>1)
-                button2.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>1) button2.setOnClickListener {
                     var te = List_Item[1]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>2)
-                button3.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>2) button3.setOnClickListener {
                     var te = List_Item[2]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>3)
-                button4.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>3) button4.setOnClickListener {
                     var te = List_Item[3]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>4)
-                button5.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>4) button5.setOnClickListener {
                     var te = List_Item[4]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>5)
-                button6.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>5) button6.setOnClickListener {
                     var te = List_Item[5]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>6)
-                button7.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>6) button7.setOnClickListener {
                     var te = List_Item[6]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>7)
-                button8.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>7) button8.setOnClickListener {
                     var te = List_Item[7]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>8)
-                button9.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>8) button9.setOnClickListener {
                     var te = List_Item[8]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>9)
-                button10.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>9) button10.setOnClickListener {
                     var te = List_Item[9]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>10)
-                button11.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>10)button11.setOnClickListener {
                     var te = List_Item[10]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>11)
-                button12.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>11)button12.setOnClickListener {
                     var te = List_Item[11]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>12)
-                button13.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>12)button13.setOnClickListener {
                     var te = List_Item[12]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>13)
-                button14.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>13)button14.setOnClickListener {
                     var te = List_Item[13]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>14)
-                button15.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>14)button15.setOnClickListener {
                     var te = List_Item[14]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>15)
-                button16.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>15)button16.setOnClickListener {
                     var te = List_Item[15]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>16)
-                button17.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>16)button17.setOnClickListener {
                     var te = List_Item[16]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
-            if (RT>17)
-                button18.setOnClickListener {
-                    val intent = Intent(this@MainActivity,itemActivity::class.java)
+            if (RT>17)button18.setOnClickListener {
                     var te = List_Item[17]
-                    intent.putExtra("id", te)
-                    intent.putExtra("room", gg)
-                    intent.putExtra("OldString", am)
-                    startActivity(intent)
+                    intents(te)
                 }
         }
+    fun intents(te:String){
+        val intent = Intent(this@MainActivity,itemActivity::class.java)
+        intent.putExtra("id", te)
+        intent.putExtra("user", user)
+        intent.putExtra("room", gg)
+        intent.putExtra("OldString", am)
+        startActivity(intent)
+    }
 
 
 }
