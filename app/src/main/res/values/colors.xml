@@ -2,22 +2,21 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="background">#1C1C1C</color>
-    <color name="colorText">#FFFFFF</color>
-    <color name="colorTextHint">#DBDBDB</color>
+    <color name="colorPrimaryLight">#C5CAE9</color>
+    <color name="colorAccent">#448AFF</color>
+    <color name="colorBackground">#FAFAFA</color>
+    <color name="colorTextPrimary">#222222</color>
+    <color name="colorTextSecondary">#757575</color>
+    <color name="colorDivider">#BDBDBD</color>
+    <color name="colorTextIcon">#FFFFFF</color>
 
-    <color name="color_B_N">#FF8E00</color>
-    <color name="color_B_F">#FF6702</color>
-    <color name="color_B_P">#E54818</color>
+    <!--Keypad-->
+    <color name="color_light_grey">#E6E6E6</color>
+    <color name="color_transparent_blue_lime_20">#448AFF</color>
+    <color name="color_transparent_blue_lime_40">#2962FF</color>
 
-    <color name="color_itemN">#2F80ED</color>
-    <color name="color_itemF">#43A8F0</color>
-    <color name="color_itemP">#3893EE</color>
-
-    <color name="color_itemN2">#0FBAAC</color>
-    <color name="color_itemF2">#18C29C</color>
-    <color name="color_itemP2">#126872</color>
-
-    <color name="color_Disable">#DBDBDB</color>
+    <color name="transparent">#00000000</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="warning">#F44336</color>
 </resources>

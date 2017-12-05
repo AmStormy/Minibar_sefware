@@ -1,0 +1,226 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/BodyWrapper"
+    android:orientation="horizontal"
+    tools:context=".activity.PinActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingEnd="25dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingStart="25dp"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dip"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_key_pad_message"
+                style="@style/BaseTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lineSpacingExtra="8dp"
+                android:text="@string/pin_title"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tv_key_pad_error_message"
+                style="@style/BaseTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="@color/warning"
+                android:visibility="invisible" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dip"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btn_circle1"
+                    style="@style/Widget.Button.Keypad.Small" />
+
+                <Button
+                    android:id="@+id/btn_circle2"
+                    style="@style/Widget.Button.Keypad.Small" />
+
+                <Button
+                    android:id="@+id/btn_circle3"
+                    style="@style/Widget.Button.Keypad.Small" />
+
+                <Button
+                    android:id="@+id/btn_circle4"
+                    style="@style/Widget.Button.Keypad.Small" />
+
+                <Button
+                    android:id="@+id/btn_circle5"
+                    style="@style/Widget.Button.Keypad.Small" />
+
+                <Button
+                    android:id="@+id/btn_circle6"
+                    style="@style/Widget.Button.Keypad.Small" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout  style="@style/KeypadWrapper">
+
+                    <Button
+                        android:id="@+id/btn_1"
+                        style="@style/Widget.Button.Keypad"
+                        android:text="1"
+                        tools:ignore="HardcodedText" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/KeypadWrapper">
+
+                    <Button
+                        android:id="@+id/btn_2"
+                        style="@style/Widget.Button.Keypad"
+                        android:text="2"
+                        tools:ignore="HardcodedText" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/KeypadWrapper">
+
+                    <Button
+                        android:id="@+id/btn_3"
+                        style="@style/Widget.Button.Keypad"
+                        android:text="3"
+                        tools:ignore="HardcodedText" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout style="@style/KeypadWrapper">
+
+                    <Button
+                        android:id="@+id/btn_4"
+                        style="@style/Widget.Button.Keypad"
+                        android:text="4"
+                        tools:ignore="HardcodedText" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/KeypadWrapper">
+
+                    <Button
+                        android:id="@+id/btn_5"
+                        style="@style/Widget.Button.Keypad"
+                        android:text="5"
+                        tools:ignore="HardcodedText" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/KeypadWrapper">
+
+                    <Button
+                        android:id="@+id/btn_6"
+                        style="@style/Widget.Button.Keypad"
+                        android:text="6"
+                        tools:ignore="HardcodedText" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout style="@style/KeypadWrapper">
+
+                    <Button
+                        android:id="@+id/btn_7"
+                        style="@style/Widget.Button.Keypad"
+                        android:text="7"
+                        tools:ignore="HardcodedText" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/KeypadWrapper">
+
+                    <Button
+                        android:id="@+id/btn_8"
+                        style="@style/Widget.Button.Keypad"
+                        android:text="8"
+                        tools:ignore="HardcodedText" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/KeypadWrapper">
+
+                    <Button
+                        android:id="@+id/btn_9"
+                        style="@style/Widget.Button.Keypad"
+                        android:text="9"
+                        tools:ignore="HardcodedText" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    style="@style/KeypadWrapper"
+                    android:visibility="invisible">
+
+                    <Button
+                        android:id="@+id/btn_help"
+                        style="@style/Widget.Button.Keypad"
+                        android:text="@string/help" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/KeypadWrapper">
+
+                    <Button
+                        android:id="@+id/btn_0"
+                        style="@style/Widget.Button.Keypad"
+                        android:text="0"
+                        tools:ignore="HardcodedText" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/KeypadWrapper">
+
+                    <ImageButton
+                        android:id="@+id/btn_del"
+                        style="@style/Widget.Button.Keypad.Delete"
+                        android:contentDescription="@string/app_name"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/ic_key_pad_delete" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

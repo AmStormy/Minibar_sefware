@@ -1,11 +1,61 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="BodyWrapper">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/white</item>
     </style>
+
+    <style name="BaseTextViewStyle" parent="Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <!-- Key Pad style -->
+    <style name="KeypadWrapper">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginTop">9dip</item>
+        <item name="android:layout_marginBottom">9dip</item>
+    </style>
+
+
+    <style name="TextAppearance.Keypad">
+        <item name="android:textSize">40sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="Widget.Button.Keypad" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:textAppearance">@style/TextAppearance.Keypad</item>
+        <item name="android:background">@drawable/drawable_key_pad_selector</item>
+        <item name="android:textColor">@drawable/text_color_selector</item>
+        <item name="android:minHeight">50dip</item>
+        <item name="android:layout_height">70dip</item>
+        <item name="android:layout_width">70dip</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="Widget.Button.Keypad.Delete" parent="@style/Widget.AppCompat.ImageButton">
+        <item name="android:background">@null</item>
+        <item name="android:minHeight">40dip</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="Widget.Button.Keypad.Small" parent="Widget.Button.Keypad">
+        <item name="android:background">@drawable/drawable_key_pad_selector_small</item>
+        <item name="android:minHeight">17dip</item>
+        <item name="android:layout_height">17dip</item>
+        <item name="android:layout_width">17dip</item>
+        <item name="android:layout_marginLeft">8dip</item>
+        <item name="android:layout_marginRight">8dip</item>
+    </style>
+
 
 </resources>
