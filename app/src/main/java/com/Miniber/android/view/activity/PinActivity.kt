@@ -1,16 +1,18 @@
-package com.Miniber.android.activity
+package com.Miniber.android.view.activity
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import com.Miniber.android.R
+import com.Miniber.android.view.BaseActivity
+import com.Miniber.android.viewmodel.PinViewModel
 import kotlinx.android.synthetic.main.activity_pin.*
 
 
 /**
 * Created by chaiwut on 5/12/17.
 */
-class PinActivity: _BaseActivity(){
+class PinActivity: BaseActivity(){
 
     companion object {
         private var viewModel: PinViewModel? = null
@@ -23,11 +25,11 @@ class PinActivity: _BaseActivity(){
 
         defineView()
         defineAction()
+        defineSubscribe()
     }
 
     override fun defineView(){
         viewModel = ViewModelProviders.of(this).get(PinViewModel::class.java)
-        subScriptions(viewModel!!)
     }
 
     override fun defineAction(){
@@ -46,14 +48,13 @@ class PinActivity: _BaseActivity(){
 
     }
 
-
-    fun subScriptions(viewModel: PinViewModel){
-        viewModel.liveDataPinSize().observe(this, Observer<Int> { it ->
+    override fun defineSubscribe() {
+        viewModel!!.liveDataPinSize().observe(this, Observer<Int> { it ->
             pinSize = it!!
             updateCircle()
         })
 
-        viewModel.liveDataCheckPin().observe(this, Observer<Boolean> { it ->
+        viewModel!!.liveDataCheckPin().observe(this, Observer<Boolean> { it ->
             if(it!!){
                 showLoadingDialog(this,false)
             }else{

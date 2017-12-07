@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ToggleButton
+            android:id="@+id/tb_server_ip"
+            style="@style/languageRadioTH"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_gravity="right"
+            android:checked="false"
+            android:textOff="demo"
+            android:textOn="sit" />
+
+            <TextView
+                android:id="@+id/tv_verify_login_welcome_title"
+                style="@style/BaseTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="text_verify_login_welcome_title"
+                android:textSize="19sp"
+                android:visibility="gone"
+                tools:ignore="HardcodedText"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/LinearAreaStyle"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_activation_message"
+                style="@style/BaseTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/verify_title"
+                android:textColor="@color/colorTextPrimary"
+                tools:ignore="HardcodedText"/>
+
+            <com.Miniber.android.view.custom.CustomEditText
+                android:id="@+id/et_property_code"
+                android:maxLength="30"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:inputType="textLongMessage"
+                style="@style/EditTextGreyStyle"
+                android:hint="@string/verify_hint"
+                tools:ignore="HardcodedText"/>
+
+            <Button
+                android:id="@+id/btn_submit"
+                style="@style/ButtonBlueStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dip"
+                android:paddingLeft="20dip"
+                android:paddingRight="20dip"
+                android:text="@string/confirm"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>

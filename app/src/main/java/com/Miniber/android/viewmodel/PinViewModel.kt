@@ -1,16 +1,18 @@
-package com.Miniber.android.activity
+package com.Miniber.android.viewmodel
 
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.ViewModel
+import android.content.Context
 import android.util.Log
 import java.util.*
 
 /**
  * Created by chaiwut on 2/12/17.
  */
-class PinViewModel(application: Application) : AndroidViewModel(application) {
+class PinViewModel : ViewModel() {
 
     companion object {
         val TAG = "PinViewModel"

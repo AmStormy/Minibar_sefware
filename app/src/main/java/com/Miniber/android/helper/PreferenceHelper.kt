@@ -4,7 +4,7 @@ import android.content.Context
 import android.preference.PreferenceManager
 import android.content.SharedPreferences
 import android.text.TextUtils
-
+import com.Miniber.android.model.Property
 
 
 /**
@@ -12,6 +12,9 @@ import android.text.TextUtils
  */
 class PreferenceHelper(private val context: Context) {
 
+    val PREFERENCE_COMPANY_CODE = "company_code"
+    val PREFERENCE_COMPANY_NAME = "company_name"
+    val PREFERENCE_COMPANY_PHOTO = "company_photo"
 
     val sharedPreferences: SharedPreferences?
         get() = PreferenceManager.getDefaultSharedPreferences(context)
@@ -20,6 +23,23 @@ class PreferenceHelper(private val context: Context) {
         return sharedPreferences != null
     }
 
+    fun addSessionProperty(property: Property){
+        property.code?.let { persistString(PREFERENCE_COMPANY_CODE, it) }
+        property.name?.let { persistString(PREFERENCE_COMPANY_NAME, it) }
+        property.photo?.let { persistString(PREFERENCE_COMPANY_PHOTO, it) }
+    }
+
+    fun resetSessionProperty(){
+        persistString(PREFERENCE_COMPANY_CODE, "")
+        persistString(PREFERENCE_COMPANY_NAME, "")
+        persistString(PREFERENCE_COMPANY_PHOTO, "")
+    }
+    
+    fun getSessionProperty(): Property{
+        return Property(getPersistedString(PREFERENCE_COMPANY_CODE,"").toString(),
+                getPersistedString(PREFERENCE_COMPANY_NAME,"").toString(),
+                getPersistedString(PREFERENCE_COMPANY_PHOTO,"").toString())
+    }
 
     fun persistString(key: String, value: String): Boolean {
         if (shouldPersist()) {

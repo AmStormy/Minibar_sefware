@@ -1,4 +1,4 @@
-package com.Miniber.android.activity
+package com.Miniber.android.view
 
 import android.annotation.SuppressLint
 import android.app.Dialog
@@ -19,7 +19,7 @@ import timber.log.Timber
 */
 
 @SuppressLint("Registered")
-abstract class _BaseActivity : AppCompatActivity(){
+abstract class BaseActivity : AppCompatActivity(){
 
     val TAG = this.javaClass.simpleName
 
@@ -31,6 +31,7 @@ abstract class _BaseActivity : AppCompatActivity(){
         Timber.d("onCreate: " + savedInstanceState)
 
         mDialog = Dialog(this)
+
     }
 
     //Base functions
@@ -38,6 +39,7 @@ abstract class _BaseActivity : AppCompatActivity(){
 
     abstract fun defineAction()
 
+    abstract fun defineSubscribe()
 
     //Log events
     override fun onStart() {
@@ -66,6 +68,7 @@ abstract class _BaseActivity : AppCompatActivity(){
 
     override fun onDestroy() {
         super.onDestroy()
+        hideLoadingDialog()
         Timber.tag(TAG)
         Timber.d("onDestroy: ")
     }
@@ -83,13 +86,14 @@ abstract class _BaseActivity : AppCompatActivity(){
     }
 
     fun showLoadingDialog(context: Context, cancelAble: Boolean) {
-        val view = LayoutInflater.from(context).inflate(R.layout.dialog_splash,null)
-        mDialog!!.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        mDialog!!.setContentView(view)
-        mDialog!!.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        mDialog!!.setCancelable(cancelAble)
-        mDialog!!.show()
-
+        if(!mDialog!!.isShowing){
+            val view = LayoutInflater.from(context).inflate(R.layout.dialog_splash,null)
+            mDialog!!.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            mDialog!!.setContentView(view)
+            mDialog!!.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            mDialog!!.setCancelable(cancelAble)
+            mDialog!!.show()
+        }
     }
 
     fun hideLoadingDialog() {

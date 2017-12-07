@@ -13,6 +13,14 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
-    <string name="pin_title">Enter your PIN</string>
+    <string name="pin_title">Enter your passcode</string>
     <string name="help">Help</string>
+
+    <string name="verify_title">Enter your property code</string>
+    <string name="verify_hint">Property code</string>
+    <string name="confirm">Confirm</string>
+
+    <string name="success">Success</string>
+    <string name="fail">Fail</string>
+    <string name="not_data">This data doesn\'t exist</string>
 </resources>

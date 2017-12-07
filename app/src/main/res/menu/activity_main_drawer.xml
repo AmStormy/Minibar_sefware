@@ -12,9 +12,12 @@
         </menu>
     </item>
 
-    <item android:title="Fragment">
+    <item android:title="">
         <menu>
-
+            <item
+                android:id="@+id/menu_logout"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Exit" />
         </menu>
     </item>
 

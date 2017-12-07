@@ -1,15 +1,16 @@
-package com.Miniber.android.activity
+package com.Miniber.android.viewmodel
 
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.ViewModel
 import java.util.*
 
 /**
- * Created by chaiwut on 2/12/17.
- */
-class SplashViewModel(application: Application) : AndroidViewModel(application) {
+* Created by chaiwut on 2/12/17.
+*/
+class SplashViewModel : ViewModel() {
 
     companion object {
         private val delay = 0
@@ -32,7 +33,7 @@ class SplashViewModel(application: Application) : AndroidViewModel(application) 
         }, delay.toLong(), period.toLong())
     }
 
-    fun getLoading(): LiveData<Boolean> {
+    fun loading(): LiveData<Boolean> {
         return mLoaded
     }
 

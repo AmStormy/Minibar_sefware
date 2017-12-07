@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     style="@style/BodyWrapper"
     android:orientation="vertical"
-    tools:context=".activity.PinActivity">
+    tools:context=".view.activity.PinActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
