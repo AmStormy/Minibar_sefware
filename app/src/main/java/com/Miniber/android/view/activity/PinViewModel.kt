@@ -1,11 +1,8 @@
-package com.Miniber.android.viewmodel
+package com.Miniber.android.view.activity
 
-import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import android.content.Context
 import android.util.Log
 import java.util.*
 

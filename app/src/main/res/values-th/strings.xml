@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_short_name">มินิบาร์</string>
+    <string name="help">ช่วยเหลือ</string>
+    <string name="pin_title">กรุณาใส่รหัสผ่านของท่าน</string>
+    <string name="verify_title">กรุณาใส่รหัสยืนยันของท่าน</string>
+    <string name="verify">ยืนยัน</string>
+    <string name="verify_hint">รหัสยืนยัน</string>
+    <string name="close">ปิด</string>
+    <string name="code_fail">รหัสผิดพลาด</string>
+    <string name="code_not_found">ไม่พบรหัสใดที่ตรงกัน</string>
+    <string name="verification">การยืนยันตน</string>
+    <string name="change_language">เปลี่ยนภาษา</string>
+</resources>

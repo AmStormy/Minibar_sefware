@@ -11,6 +11,7 @@ import android.support.annotation.Nullable
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.Window
+import com.akexorcist.localizationactivity.ui.LocalizationActivity
 import timber.log.Timber
 
 
@@ -19,7 +20,7 @@ import timber.log.Timber
 */
 
 @SuppressLint("Registered")
-abstract class BaseActivity : AppCompatActivity(){
+abstract class BaseActivity : LocalizationActivity(){
 
     val TAG = this.javaClass.simpleName
 
@@ -31,7 +32,7 @@ abstract class BaseActivity : AppCompatActivity(){
         Timber.d("onCreate: " + savedInstanceState)
 
         mDialog = Dialog(this)
-
+        setDefaultLanguage("th")
     }
 
     //Base functions

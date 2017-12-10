@@ -1,27 +1,16 @@
 package com.Miniber.android
 
 import android.app.Application
-import android.util.Log
+import android.content.Context
+import android.content.res.Configuration
+import com.akexorcist.localizationactivity.core.LocalizationApplicationDelegate
 import com.crashlytics.android.Crashlytics
+import com.crashlytics.android.core.CrashlyticsCore
 import com.facebook.stetho.Stetho
 import com.facebook.stetho.rhino.JsRuntimeReplFactoryBuilder
 import io.fabric.sdk.android.Fabric
-import com.facebook.stetho.dumpapp.DumperPlugin
-import com.facebook.stetho.DumperPluginsProvider
-import timber.log.Timber.DebugTree
 import timber.log.Timber
-import com.crashlytics.android.core.CrashlyticsCore
-import com.Miniber.android.helper.CrashlyticsTree
-import com.Miniber.android.helper.InitSetting
-
-
-
-
-
-
-
-
-
+import timber.log.Timber.DebugTree
 
 
 /**
@@ -59,15 +48,22 @@ class BasicApplication : Application() {
                 }
                 .build())
 
-        initFirstSetting()
     }
 
-    private fun initFirstSetting() {
-        InitSetting.init(this)
-                .ifFirstRunApplication() // important
-                .persistString("setting_value_1", "setting_value_1")
-                .persistString("setting_value_2", "setting_value_2")
-                .persistString("setting_value_3", "setting_value_3")
+
+    var localizationDelegate = LocalizationApplicationDelegate(this)
+
+    override fun attachBaseContext(base: Context) {
+        super.attachBaseContext(localizationDelegate.attachBaseContext(base))
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        localizationDelegate.onConfigurationChanged(this)
+    }
+
+    override fun getApplicationContext(): Context {
+        return localizationDelegate.getApplicationContext(super.getApplicationContext())
     }
 
 }

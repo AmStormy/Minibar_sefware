@@ -5,7 +5,6 @@ import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import com.Miniber.android.R
 import com.Miniber.android.view.BaseActivity
-import com.Miniber.android.viewmodel.PinViewModel
 import kotlinx.android.synthetic.main.activity_pin.*
 
 

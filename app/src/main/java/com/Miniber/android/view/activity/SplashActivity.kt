@@ -7,7 +7,6 @@ import com.Miniber.android.R
 import android.os.Bundle
 import com.Miniber.android.helper.PreferenceHelper
 import com.Miniber.android.view.BaseActivity
-import com.Miniber.android.viewmodel.SplashViewModel
 
 /**
  * Created by Chaiwut on 2/12/2017
@@ -39,12 +38,11 @@ class SplashActivity : BaseActivity(){
     override fun defineSubscribe() {
         viewModel!!.loading().observe(this, Observer<Boolean> { it ->
             if(it!!){
-                val preference = PreferenceHelper(this)
-                if(preference.getPersistedString(preference.PREFERENCE_COMPANY_CODE,"").equals("")){
-                    startActivity(Intent(this, VerifyActivity::class.java))
+                if(PreferenceHelper(this).isPropertyRegister()){
+                    startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 }else{
-                    startActivity(Intent(this, MainActivity::class.java))
+                    startActivity(Intent(this, VerifyActivity::class.java))
                     finish()
                 }
             }
