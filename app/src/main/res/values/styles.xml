@@ -1,9 +1,5 @@
 <resources>
 
-    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">18sp</item>
-    </style>
-
     <style name="BodyWrapper">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>

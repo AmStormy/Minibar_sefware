@@ -3,12 +3,13 @@ package com.Miniber.android.view.activity
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import com.Miniber.android.view.BaseViewModel
 import java.util.*
 
 /**
 * Created by chaiwut on 2/12/17.
 */
-class SplashViewModel : ViewModel() {
+class SplashViewModel : BaseViewModel() {
 
     companion object {
         private val delay = 0

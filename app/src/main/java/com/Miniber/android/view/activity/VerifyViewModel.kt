@@ -7,6 +7,7 @@ import android.content.res.Resources
 import com.Miniber.android.R
 import com.Miniber.android.model.Property
 import com.Miniber.android.model.Response
+import com.Miniber.android.view.BaseViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 import timber.log.Timber
 
@@ -14,7 +15,7 @@ import timber.log.Timber
 /**
 * Created by chaiwut on 2/12/17.
 */
-class VerifyViewModel : ViewModel() {
+class VerifyViewModel : BaseViewModel() {
 
     val db = FirebaseFirestore.getInstance()
     val db_ref = "properties"

@@ -33,15 +33,15 @@ class VerifyActivity: BaseActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verify)
 
-        defineView()
+        defineView(savedInstanceState)
         defineAction()
         defineSubscribe()
     }
 
-    override fun defineView() {
+    override fun defineView(savedInstanceState: Bundle?) {
         val drawable = ContextCompat.getDrawable(applicationContext, R.drawable.ic_public)
         toolbar.overflowIcon = drawable
-        toolbar.title = resources.getString(R.string.verification)
+        toolbar.title = ""
         setSupportActionBar(toolbar)
         viewModel = ViewModelProviders.of(this).get(VerifyViewModel::class.java)
         val view: View = if (currentFocus == null) View(this) else currentFocus
@@ -53,7 +53,7 @@ class VerifyActivity: BaseActivity(){
     override fun defineAction() {
         btn_submit.setOnClickListener{
             if(editText.text.toString() != ""){
-                showLoadingDialog(this,false)
+                mDialog?.showLoadingDialog(false)
                 viewModel?.verifyCode(editText.text.toString())
             }
         }
@@ -69,7 +69,7 @@ class VerifyActivity: BaseActivity(){
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }else{
-                hideLoadingDialog()
+                mDialog?.hideLoadingDialog()
                 Timber.d(it.message)
 
                 MaterialDialog.Builder(this)

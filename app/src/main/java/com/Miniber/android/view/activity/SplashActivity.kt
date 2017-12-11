@@ -22,12 +22,12 @@ class SplashActivity : BaseActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        defineView()
+        defineView(savedInstanceState)
         defineAction()
         defineSubscribe()
     }
 
-    override fun defineView() {
+    override fun defineView(savedInstanceState: Bundle?) {
         viewModel = ViewModelProviders.of(this).get(SplashViewModel::class.java)
     }
 

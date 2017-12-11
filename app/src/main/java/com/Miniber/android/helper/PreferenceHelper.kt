@@ -5,6 +5,7 @@ import android.preference.PreferenceManager
 import android.content.SharedPreferences
 import android.text.TextUtils
 import com.Miniber.android.model.Property
+import com.Miniber.android.model.User
 
 
 /**
@@ -12,23 +13,11 @@ import com.Miniber.android.model.Property
  */
 class PreferenceHelper(private val context: Context) {
 
-    val PREFERENCE_COMPANY_CODE = "company_code"
-    val PREFERENCE_COMPANY_NAME = "company_name"
-    val PREFERENCE_COMPANY_LOGO = "company_logo"
-    val PREFERENCE_COMPANY_PHOTO = "company_photo"
-
     val sharedPreferences: SharedPreferences?
         get() = PreferenceManager.getDefaultSharedPreferences(context)
 
     fun shouldPersist(): Boolean {
         return sharedPreferences != null
-    }
-
-    fun getSessionProperty(): Property{
-        return Property(getPersistedString(PREFERENCE_COMPANY_CODE,"").toString(),
-                getPersistedString(PREFERENCE_COMPANY_NAME,"").toString(),
-                getPersistedString(PREFERENCE_COMPANY_LOGO,"").toString(),
-                getPersistedString(PREFERENCE_COMPANY_PHOTO,"").toString())
     }
 
     fun persistString(key: String, value: String): Boolean {
@@ -82,8 +71,20 @@ class PreferenceHelper(private val context: Context) {
      * Property sessions
      * */
 
+    val PREFERENCE_COMPANY_CODE = "company_code"
+    val PREFERENCE_COMPANY_NAME = "company_name"
+    val PREFERENCE_COMPANY_LOGO = "company_logo"
+    val PREFERENCE_COMPANY_PHOTO = "company_photo"
+
     fun isPropertyRegister(): Boolean {
         return sharedPreferences!!.getString(PREFERENCE_COMPANY_CODE, "") != ""
+    }
+
+    fun getSessionProperty(): Property{
+        return Property(getPersistedString(PREFERENCE_COMPANY_CODE,"").toString(),
+                getPersistedString(PREFERENCE_COMPANY_NAME,"").toString(),
+                getPersistedString(PREFERENCE_COMPANY_LOGO,"").toString(),
+                getPersistedString(PREFERENCE_COMPANY_PHOTO,"").toString())
     }
 
     fun addSessionProperty(property: Property){
@@ -98,5 +99,39 @@ class PreferenceHelper(private val context: Context) {
         persistString(PREFERENCE_COMPANY_NAME, "")
         persistString(PREFERENCE_COMPANY_LOGO, "")
         persistString(PREFERENCE_COMPANY_PHOTO, "")
+    }
+
+    /**
+     * User sessions
+     * */
+
+    val PREFERENCE_USER_UID = "user_uid"
+    val PREFERENCE_USER_NAME = "user_name"
+    val PREFERENCE_USER_EMAIL = "user_email"
+    val PREFERENCE_USER_PHOTO = "user_photo"
+
+    fun isUserRegister(): Boolean {
+        return sharedPreferences!!.getString(PREFERENCE_USER_UID, "") != ""
+    }
+
+    fun getSessionUser(): User{
+        return User(getPersistedString(PREFERENCE_USER_UID,"").toString(),
+                getPersistedString(PREFERENCE_USER_NAME,"").toString(),
+                getPersistedString(PREFERENCE_USER_EMAIL,"").toString(),
+                getPersistedString(PREFERENCE_USER_PHOTO,"").toString())
+    }
+
+    fun addSessionUser(user: User){
+        user.uid?.let { persistString(PREFERENCE_USER_UID, it) }
+        user.name.let { persistString(PREFERENCE_USER_NAME, it) }
+        user.email.let { persistString(PREFERENCE_USER_EMAIL, it) }
+        user.photo.let { persistString(PREFERENCE_USER_PHOTO, it) }
+    }
+
+    fun resetSessionUser(){
+        persistString(PREFERENCE_USER_UID, "")
+        persistString(PREFERENCE_USER_NAME, "")
+        persistString(PREFERENCE_USER_EMAIL, "")
+        persistString(PREFERENCE_USER_PHOTO, "")
     }
 }

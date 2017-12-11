@@ -12,25 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.Large.Bold"
-                android:textColor="@color/white"
-                android:text="@string/verify_header_title"
-                android:layout_gravity="center"
-                android:id="@+id/toolbar_title" />
-
-        </android.support.v7.widget.Toolbar>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,28 +19,23 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_activation_message"
+                android:id="@+id/tv_property_name"
                 style="@style/BaseTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/verify_title"
+                tools:text="@string/verify_title"
                 android:textColor="@color/colorTextPrimary"
                 tools:ignore="HardcodedText"/>
 
-            <com.Miniber.android.view.custom.CustomEditText
-                android:id="@+id/et_property_code"
-                android:maxLength="30"
+            <View
                 android:layout_width="match_parent"
+                android:layout_height="1dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="15dp"
-                android:inputType="textLongMessage"
-                android:focusable="true"
-                style="@style/EditTextGreyStyle"
-                android:hint="@string/verify_hint"
-                tools:ignore="HardcodedText"/>
+                android:layout_marginBottom="10dp"
+                android:background="@color/colorDivider"/>
 
             <com.rilixtech.materialfancybutton.MaterialFancyButton
-                android:id="@+id/btn_submit"
+                android:id="@+id/btn_signin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
@@ -68,7 +44,7 @@
                 fancy:mfb_defaultColor="@color/colorPrimary"
                 fancy:mfb_focusColor="@color/colorPrimaryDark"
                 fancy:mfb_textSize="18sp"
-                fancy:mfb_text="@string/confirm"
+                fancy:mfb_text="@string/signin"
                 fancy:mfb_textColor="@color/white"
                 fancy:mfb_radius="5dp"
                 />

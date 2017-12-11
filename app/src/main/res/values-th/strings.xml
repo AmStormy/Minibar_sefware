@@ -2,13 +2,20 @@
 <resources>
     <string name="app_short_name">มินิบาร์</string>
     <string name="help">ช่วยเหลือ</string>
-    <string name="pin_title">กรุณาใส่รหัสผ่านของท่าน</string>
+    <string name="pin_title">กรุณาใส่รหัสใช้งานของท่าน</string>
     <string name="verify_title">กรุณาใส่รหัสยืนยันของท่าน</string>
-    <string name="verify">ยืนยัน</string>
     <string name="verify_hint">รหัสยืนยัน</string>
     <string name="close">ปิด</string>
     <string name="code_fail">รหัสผิดพลาด</string>
     <string name="code_not_found">ไม่พบรหัสใดที่ตรงกัน</string>
-    <string name="verification">การยืนยันตน</string>
     <string name="change_language">เปลี่ยนภาษา</string>
+    <string name="verify_header_title">รหัสยืนยัน</string>
+    <string name="pin_header_title">เข้าสู่ระบบ</string>
+    <string name="confirm">ยืนยัน</string>
+    <string name="signin">เข้าสู่ระบบ</string>
+    <string name="exit">ปิดแอพพลิเคชัน</string>
+    <string name="signout">ออกจากระบบ</string>
+    <string name="settings">การตั้งค่า</string>
+    <string name="current_version">เวอร์ชันปัจจุบัน</string>
+    <string name="language">ภาษา</string>
 </resources>

@@ -1,34 +1,72 @@
 package com.Miniber.android.view.activity
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import android.app.Activity
+import android.app.Application
+import android.arch.lifecycle.*
 import android.util.Log
+import com.Miniber.android.helper.PreferenceHelper
+import com.Miniber.android.model.Property
+import com.Miniber.android.model.Response
+import com.Miniber.android.model.User
+import com.Miniber.android.view.BaseViewModel
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
+import timber.log.Timber
 import java.util.*
 
 /**
  * Created by chaiwut on 2/12/17.
  */
-class PinViewModel : ViewModel() {
+class PinViewModel : BaseViewModel() {
 
     companion object {
-        val TAG = "PinViewModel"
-        val mCheckinPin = MutableLiveData<Boolean>()
+        val mLoading = MutableLiveData<Boolean>()
+        val mUser = MutableLiveData<User>()
         val mPinListSize = MutableLiveData<Int>()
         val mPinLists: MutableList<Int>? = arrayListOf()
     }
 
+    private val db = FirebaseFirestore.getInstance()
+
     init {
-        Log.d(TAG,"created.")
+        resetPinLists()
     }
 
-    fun addPin(number: Int){
+    fun resetPinLists(){
+        mPinLists?.clear()
+    }
+
+    fun resetUser(){
+        mUser.postValue(User(""))
+    }
+
+    fun addPin(number: Int, propertCode: String){
         if(mPinLists!!.size<6){
             mPinLists.add(number)
             mPinListSize.postValue(mPinLists.size)
             if(mPinLists.size == 6){
-                mCheckinPin.postValue(true)
-                DummyCallApi()
+
+                var passcode = ""
+                for (it in mPinLists){
+                    passcode += it.toString()
+                }
+
+                mLoading.postValue(true)
+                val docRef = db.collection("users").document(propertCode).collection("users")
+                docRef.get().addOnSuccessListener { collectionSnapshot ->
+                    if(!collectionSnapshot.documents.isEmpty()){
+                        for(document: DocumentSnapshot in collectionSnapshot.documents){
+                            if(document.get("passcode") == passcode){
+                                mUser.postValue(document.toObject(User::class.java))
+                            }
+                        }
+                        resetPin()
+                    }else{
+                        resetPin()
+                    }
+                }.addOnFailureListener{ e ->
+                    resetPin()
+                }
             }
         }
     }
@@ -43,15 +81,19 @@ class PinViewModel : ViewModel() {
     fun resetPin(){
         mPinLists!!.clear()
         mPinListSize.postValue(mPinLists.size)
-        mCheckinPin.postValue(false)
+        mLoading.postValue(false)
     }
 
     fun liveDataPinSize(): LiveData<Int> {
         return mPinListSize
     }
 
-    fun liveDataCheckPin(): LiveData<Boolean> {
-        return mCheckinPin
+    fun liveDataLoading(): LiveData<Boolean> {
+        return mLoading
+    }
+
+    fun liveDataUser(): LiveData<User> {
+        return mUser
     }
 
     fun DummyCallApi(){
@@ -60,7 +102,7 @@ class PinViewModel : ViewModel() {
         timer.scheduleAtFixedRate(object: TimerTask() {
             override fun run() {
                 startTime += 1000
-                if(startTime >= 5000){
+                if(startTime >= 2000){
                     resetPin()
                     timer.cancel()
                 }

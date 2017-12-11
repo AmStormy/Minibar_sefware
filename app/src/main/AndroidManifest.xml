@@ -17,7 +17,7 @@
         android:label="@string/app_short_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme">
         <activity android:name="com.Miniber.android.view.activity.SplashActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +28,7 @@
         <activity android:name="com.Miniber.android.view.activity.VerifyActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.Miniber.android.view.activity.MainActivity" android:screenOrientation="portrait"/>
         <activity android:name="com.Miniber.android.view.activity.PinActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.Miniber.android.view.activity.SettingActivity" android:screenOrientation="portrait"/>
 
     </application>
 
